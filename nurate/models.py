@@ -6,11 +6,11 @@ from django.db import models
 
 class Courses(models.Model): 
     SCHOOL_CHOICES = (
-    ("1", "SEDS"),
-    ("2", "SSH"),
-    ("3", "SMG"),
-    ("4", "SME"),
-    ("5", "Graduate"),
+    ("0", "SEDS"),
+    ("1", "SSH"),
+    ("2", "SMG"),
+    ("3", "SME"),
+    ("4", "Graduate"),
     )
     parent_school = models.CharField(max_length=32, choices=SCHOOL_CHOICES, default=1)
     id = models.IntegerField(primary_key=True)
