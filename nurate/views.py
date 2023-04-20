@@ -27,6 +27,14 @@ from django.core.exceptions import ObjectDoesNotExist
  # 5. update_file 
 
 
+# new goal -> postgreSQL everywhere.
+# then database + SET up the files. 
+# another new goal -> parse the registrar data nahui!!! 
+# another new goal -> 
+# another new goal -> 
+
+
+
  
 @api_view(['GET'])
 def home_everything(request, pk): 
@@ -43,6 +51,7 @@ def home_everything(request, pk):
 
 
     course_serializer = CourseListSerializer(courses, many = True)
+
     #if course_serializer.is_valid():
 
    # print(course_serializer.data)
@@ -115,6 +124,8 @@ def download_file(request):
     file_to_return = Files.objects.get(id = file_id)
     file_serializer = FileListSerializer(file_to_return)
     return Response(file_serializer.data)
+
+
 
 
 @api_view(['POST'])

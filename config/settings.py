@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bagala',#database name
+        'NAME': 'bagala_heroku',#database name
         'USER': 'postgres',#projectuser
         'PASSWORD': '123',#password
         'HOST': 'localhost',
