@@ -1,7 +1,15 @@
+
+
 from django.urls import include
 from django.urls import path
+from .views import ask_question
 
 
+urlpatterns = [ 
+    path('askquestion/', ask_question, name = 'askquestion'),
+
+
+]
 """
 urlpatterns = [ 
     path('askquestion/', include(), name = 'askquestion'), 

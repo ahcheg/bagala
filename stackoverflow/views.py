@@ -6,7 +6,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework .views import APIView
 from rest_framework import status
-from .models import Courses, Files
+from .models import Question, Answer, Tag
+
 from rest_framework.exceptions import NotFound 
 import datetime
 
@@ -15,90 +16,100 @@ import json
 from rest_framework import serializers
 from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from .serializers import CourseListSerializer, FileListSerializer, ToreSerializer
+from .serializers import Question_Serializer, TagSerializer, QAserializer
 
 from rest_framework.pagination import PageNumberPagination
 from django.core.exceptions import ObjectDoesNotExist
+
+# deployed, dal'we -> new game nahui. 1. what is outputted, 2. what is inputted and processed to database 3.
+# here, stackoverflow -> every func nahuii. 
+#  
+# macro game -> is still -> api testing whatever. and frontend tuda-syuda + the interface of the frontend. 
+# more abstract macro -> Stackoverflow + Auth + Nurate + Recommendations. 
+# 
 
 
 @api_view(['POST'])
 def ask_question(request): 
     data = request.data
-    
-    
-    course = Courses.objects.filter(id = course_ids).all().first()
+    serializer = Question_Serializer(data= data)
+    """
+            'parent_tag', 
+            'title', 
+            'content', 
+            'id', 
+         'upvotes', 'downvotes'
+    """
 
-    print(Courses.objects.get(id = 1))
-
-    final_files = Files.objects.filter(parent_course= course, parent_course_category = category)
-    if(final_files):
-        serializer = FileListSerializer(final_files, many = True)
-
-
-
+    if(serializer.is_valid()): 
+        serializer.save()
         return Response(serializer.data)
-    else: 
+    else:
         raise NotFound()
-    
+
 @api_view(['GET'])
 def get_hot_questions(request): 
-    return Response()
+    questions = Question.objects.all()
+    serializer = Question_Serializer(questions, many= True)
+    return Response(serializer.data)
 
     
 @api_view(['GET'])
 def get_recommendations(request): 
-    return Response()
-
+    questions = Question.objects.all()
+    serializer = Question_Serializer(questions, many= True)
+    return Response(serializer.data)
 
 
     
-@api_view(['GET'])
+""" @api_view(['GET'])
 def get_tags(request): 
-    return Response()
+    tags = Tag.objects.all()
+    serializer = TagSerializer(tags, many= True)
+
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_questions_by_tags(request): 
+    tags = Tag.objects.all()
+    serializer = TagSerializer(tags, many= True)
+
+    return Response(serializer.data)
 
 
     
 @api_view(['GET'])
-def get_questionlist(request): 
-    return Response()
-
-
-# new strat: fuck heroku and everything else... 
-# first -> combine with bagala frontend... 
-# 
-# koroche -> stackoverflow + polnostyu obrabotat' each view and create a good databaase. 
-
-# then -> combine 
-    """
-    path('askquestion/', include(), name = 'askquestion'), 
-        path('hotquestions/',  include(), name = 'hotquestions'), 
-    path('recommended/', include() , name = 'recommended_qs'), 
-        path('question/<pk>', include() , name = 'precise_question'), 
-        path('question/<pk>/answer', include(), name = 'answer_question'), 
-        path('question/<pk>/upvote', include(), name = 'upvote_questionr'), 
-        path('question/<pk>/answer/upvote', include(), name = 'upvote_answer'), 
-
-    path('tags/',  include(), name = 'all_tags'), 
-    path('tags/<pk>', include() , name = 'precise_tag'), 
-        path('search/<slug>',  include(), name = 'search_question'), 
-    """
+def get_question(request): 
+    
 
 
 
-    # fucking disappointment suka!! 
-    # koroche now: 
-    # stackoverflow full! 
-    # losing: not doing any of these shit.
-    # not reaching frontend -> losing is totally explainable
-    # not reaching the backend stackoverflow -> losing is explainable
-    # not reaching the pagination part NURATE and Questions!!! -> totally explainable. 
-    # not reaching the whole combination of both -> also salamaleikum... 
+    
+@api_view(['POST'])
+def upvote_question(request): 
+    
 
-    # the best strat would be -> immediately deploy to the frontend + establish the new game 
 
-    # then the next quick strats would be -> devving stackoverflow and the rest in the new project ebat'. 
+    
+@api_view(['POST'])
+def downvote_question(request): 
+    
 
-    # then the next quick strat would be -> sending the request by the buttons or whatever -> designing the interface,
-    # then making requests and obtaining responses -> placing them somewhere.
 
-    # best loss would be to mysticism. because banality - i don't want to lose in a banal way, just didn't reach the right lang. 
+    
+@api_view(['POST'])
+def add_answer(request): 
+    
+
+
+    
+@api_view(['POST'])
+def upvote_answer(request): 
+    
+
+    
+@api_view(['POST'])
+def downvote_answer(request): 
+     """
+

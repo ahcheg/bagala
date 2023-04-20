@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.text import Truncator
 from django.utils.timezone import now
 from django.contrib.auth.models import User
-from forums.models import Forum
 # Create your models here.
 
 
@@ -21,20 +20,17 @@ class Question(models.Model):
     parent_tag= models.ForeignKey(Tag, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
-    creator = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)        
-    upvotes = models.IntegerField()
-    downvotes = models.IntegerField()
+    upvotes = models.IntegerField(default=0)
+    downvotes = models.IntegerField(default=0)
 
 class Answer(models.Model): 
 
     parent_question= models.ForeignKey(Question, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='question')
     created_at = models.DateTimeField(auto_now_add=True)        
-    upvotes = models.IntegerField()
-    downvotes = models.IntegerField()
+    upvotes = models.IntegerField(default=0)
+    downvotes = models.IntegerField(default=0)
 
 
 
