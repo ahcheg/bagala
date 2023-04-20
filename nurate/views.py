@@ -30,8 +30,8 @@ from django.core.exceptions import ObjectDoesNotExist
  
 @api_view(['GET'])
 def home_everything(request): 
-
-    school_id = request.data['school_id']
+    data= request.data
+    school_id = data['school_id']
 
     # SEDS 
     courses = Courses.objects.filter(parent_school = school_id)
@@ -73,13 +73,26 @@ def home_everything(request):
     #else:
       #  return Response(status=status.HTTP_404_NOT_FOUND)
 
+
+
+# quick decision 1 minute is needed: destroy.
+# 1 min decision = someone's decision is json... 
+# would be the smartest if i have recognized the course_id problem is mostly about testing other people's decisions. 
+# 
+
+# 1 mins for the macro decision - these decisions are so limited, and my further game is impossible. other's decisions involve tons of tests
+# need to understand that. 
+# 
+
 @api_view(['GET'])
 def course_file_list(request): 
-    course_ids = request.data.get('course_id')
-    category = request.data.get('category')
-    
-    course = Courses.objects.get(id = course_ids)
-    final_files = Files.objects.get(course= course, parent_course_category = category)
+    data = request.data
+    print(data)
+    course_ids = data['course_id']
+    category = request.data['category']
+    print(course_ids, category)
+    course = Courses.objects.filter(id = course_ids).first()
+    final_files = Files.objects.filter(parent_course= course, parent_course_category = category)
     if(final_files):
         serializer = FileListSerializer(final_files, many = True)
 

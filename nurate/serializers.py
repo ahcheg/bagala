@@ -60,8 +60,8 @@ class FileListSerializer(serializers.ModelSerializer):
             'content', 'date_uploaded'
         ]
 
-
-
+class download_file(): 
+  x = 0
     
 
 # losses = 1. Can ignore all the points to the postman
