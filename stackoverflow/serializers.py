@@ -4,13 +4,6 @@ from rest_framework import serializers
 from .models import Tag, Question, Answer
 
 
-
-
-
-
-
-
-
 class TagSerializer(serializers.ModelSerializer): 
 
     class Meta: 
@@ -63,8 +56,4 @@ class Answer_serializer(serializers.ModelSerializer):
 
 # another macro game = github database + HEROKU database... 
 # 
-
-
-class ParticularQuestionSerializer(serializers.Serializer): 
-# Question + NEXT = answer to it!! 
 
