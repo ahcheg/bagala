@@ -29,9 +29,9 @@ from django.core.exceptions import ObjectDoesNotExist
 
  
 @api_view(['GET'])
-def home_everything(request): 
-    data= request.data
-    school_id = data['school_id']
+def home_everything(request, pk): 
+    school_id = pk
+
 
     # SEDS 
     courses = Courses.objects.filter(parent_school = school_id)

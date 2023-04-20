@@ -62,8 +62,13 @@ def get_tags(request):
 def get_questionlist(request): 
     return Response()
 
-    
 
+# new strat: fuck heroku and everything else... 
+# first -> combine with bagala frontend... 
+# 
+# koroche -> stackoverflow + polnostyu obrabotat' each view and create a good databaase. 
+
+# then -> combine 
     """
     path('askquestion/', include(), name = 'askquestion'), 
         path('hotquestions/',  include(), name = 'hotquestions'), 
@@ -77,3 +82,23 @@ def get_questionlist(request):
     path('tags/<pk>', include() , name = 'precise_tag'), 
         path('search/<slug>',  include(), name = 'search_question'), 
     """
+
+
+
+    # fucking disappointment suka!! 
+    # koroche now: 
+    # stackoverflow full! 
+    # losing: not doing any of these shit.
+    # not reaching frontend -> losing is totally explainable
+    # not reaching the backend stackoverflow -> losing is explainable
+    # not reaching the pagination part NURATE and Questions!!! -> totally explainable. 
+    # not reaching the whole combination of both -> also salamaleikum... 
+
+    # the best strat would be -> immediately deploy to the frontend + establish the new game 
+
+    # then the next quick strats would be -> devving stackoverflow and the rest in the new project ebat'. 
+
+    # then the next quick strat would be -> sending the request by the buttons or whatever -> designing the interface,
+    # then making requests and obtaining responses -> placing them somewhere.
+
+    # best loss would be to mysticism. because banality - i don't want to lose in a banal way, just didn't reach the right lang. 

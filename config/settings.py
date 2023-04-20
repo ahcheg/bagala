@@ -169,10 +169,8 @@ JWT_AUTH = {
 
 # CORS settings
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = env.list(
-    'DJANGO_CORS_ORIGIN_WHITELIST',
-    default=[BASE_FRONTEND_URL]
-)
+CORS_ORIGIN_ALLOW_ALL = DEBUG
+
 
 
 # Google OAuth2 settings
