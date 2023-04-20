@@ -150,3 +150,4 @@ def upload_file(request):
 
         
 
+# nurate

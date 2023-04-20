@@ -12,3 +12,8 @@ urlpatterns = [
     # 
     # 
 ]
+
+
+# macro game -> a lot of decisions to be checked -> already kinda losing position... 
+# stackoverflow wws -> a lot of stuff to be checked soo losing na tonen'kogo. 
+# 

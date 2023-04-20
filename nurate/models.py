@@ -22,17 +22,15 @@ class Courses(models.Model):
 class Files(models.Model): 
 
     parent_course = models.ForeignKey(Courses, on_delete=models.CASCADE)
-    #syllabus, assignments, quizzes/midterms, other materials
     parent_course_category = models.IntegerField(default = 0)
     name = models.CharField(max_length = 255)
     date_uploaded = models.DateField()
     content = models.FileField(upload_to='staticfiles')
-
+    
     class Meta: 
         ordering = [
             '-name'
         ]
     
 
-    # file content wws + the library for the filefield. 
 

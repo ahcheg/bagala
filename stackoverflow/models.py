@@ -23,7 +23,8 @@ class Question(models.Model):
     content = models.TextField()
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)        
-
+    upvotes = models.IntegerField()
+    downvotes = models.IntegerField()
 
 class Answer(models.Model): 
 
@@ -32,6 +33,8 @@ class Answer(models.Model):
     content = models.TextField()
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='question')
     created_at = models.DateTimeField(auto_now_add=True)        
+    upvotes = models.IntegerField()
+    downvotes = models.IntegerField()
 
 
 
