@@ -39,7 +39,7 @@ class CourseListSerializer(serializers.ModelSerializer):
             'name', 
             'description', 
             'id',
-          #  'parent_course'
+          'parent_course'
         ]
 
 class ToreSerializer(serializers.Serializer): 

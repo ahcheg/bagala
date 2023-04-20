@@ -159,6 +159,17 @@ def upload_file(request):
         print(files.errors)
         return Response(files.errors, status=status.HTTP_400_BAD_REQUEST)       
 
-        
 
+@api_view(['POST'])
+def add_course(request): 
+    data = request.data
+    parent = data['parent_school']
+    id = data['id']
+    name = data['name']
+    description = data['description']
+    course = Courses(parent_school = parent, id= id, name = name, description = description )
+    course.save()
+    return Response()
+
+    
 # nurate
