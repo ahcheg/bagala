@@ -1,9 +1,6 @@
 from django.db import models
 
-# Create your models here.
 
-    # ways to lose this shit. creatively... the new shit.
-    # 
 
 class Courses(models.Model): 
     SCHOOL_CHOICES = (
