@@ -63,7 +63,3 @@ class FileListSerializer(serializers.ModelSerializer):
 class download_file(): 
   x = 0
     
-
-# losses = 1. Can ignore all the points to the postman
-# 2. can lose getting partiuclar and testing my shit forever. 
-# 3. 
