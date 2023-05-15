@@ -19,19 +19,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 
- # new quick plan: 
- # 1. home_page with files
- # 2. course_files_list 
- # 3. post_file 
- # 4. delete_file
- # 5. update_file 
 
-
-# new goal -> postgreSQL everywhere.
-# then database + SET up the files. 
-# another new goal -> parse the registrar data nahui!!! 
-# another new goal -> 
-# another new goal -> 
 
 
 
@@ -84,14 +72,7 @@ def home_everything(request, pk):
 
 
 
-# quick decision 1 minute is needed: destroy.
-# 1 min decision = someone's decision is json... 
-# would be the smartest if i have recognized the course_id problem is mostly about testing other people's decisions. 
-# 
 
-# 1 mins for the macro decision - these decisions are so limited, and my further game is impossible. other's decisions involve tons of tests
-# need to understand that. 
-# 
 
 @api_view(['GET'])
 def course_file_list(request): 
