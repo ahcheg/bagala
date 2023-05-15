@@ -9,12 +9,6 @@ urlpatterns = [
     path('download_file', download_file, name = 'download_file'), 
     path('add_course',add_course, name='add_course' )
 
-    # to implement = search_file, search_course, PAGINATION!!!, Delete_file, update_file, upload Google Drive Link, upload only link to the file
-    # 
-    # 
+
 ]
 
-
-# macro game -> a lot of decisions to be checked -> already kinda losing position... 
-# stackoverflow wws -> a lot of stuff to be checked soo losing na tonen'kogo. 
-# 
